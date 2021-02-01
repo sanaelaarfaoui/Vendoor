@@ -1,0 +1,31 @@
+<h3>Liste des catégories</h3>
+<table mat-table [dataSource]="categories" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> ID Categorie </th>
+    <td mat-cell *matCellDef="let categroy"><a routerLink="/category/{{categroy.name}}" routerLinkActive>{{categroy.id}}</a></td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Nom Catégorie </th>
+    <td mat-cell *matCellDef="let categroy"><a routerLink="/category/{{categroy.name}}" routerLinkActive>{{categroy.name}}</a></td>
+  </ng-container>
+
+  <ng-container matColumnDef="delete">
+    <th mat-header-cell *matHeaderCellDef> Supprimer </th>
+    <td mat-cell *matCellDef="let comment" (click)="onDelete(comment.id)"><span style="cursor: pointer; color: red;">x</span></td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<h3>Ajouter une catégorie</h3>
+<mat-card>
+  <form (submit)="onAddCat(catForm)" #catForm="ngForm">
+    <mat-form-field>
+      <input matInput name="name" ngModel type="text" placeholder="Nom de la catégorie" #nameInput="ngModel" required>
+      <mat-error *ngIf="nameInput.invalid">Entrez un nom !</mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="accent" type="submit">Ajouter</button>
+  </form>
+</mat-card>

@@ -1,0 +1,81 @@
+<!-- Header Section Begin -->
+<header class="header-section">
+  <div class="container-fluid">
+      <div class="inner-header">
+          <div class="logo">
+              <a href="./index.html"><img src="assets/img/logo.png" alt=""></a>
+          </div>
+          <div class="user-access" *ngIf="!userIsAuthenticated">
+              <a routerLink="/signup" routerLinkActive>S'inscrire</a>
+              <a class="in"><a routerLink="/login" routerLinkActive>Se connecter</a></a>
+          </div>
+
+
+
+        <nav class="main-menu mobile-menu" *ngIf="authType!='admin'">
+            <ul>
+                <li><a routerLink="" routerLinkActive>Acceuil</a></li>
+                <li> <a routerLink="/category">Categories</a>
+                    <ul class="sub-menu">
+                          <li *ngFor="let cat of categories"><a routerLink="/category/{{ cat.name }}" routerLinkActive>{{ cat.name }}</a></li><br>
+                    </ul>
+                </li>
+                <li><a routerLink="/coopList" routerLinkActive>Coopératives</a></li>
+                <li *ngIf="userIsAuthenticated  && authType==='coop'">
+                  <a mat-button routerLink="/create" routerLinkActive="mat-accent">New Product</a>
+                </li>
+                <li *ngIf="userIsAuthenticated  && authType==='coop'">
+                  <a mat-button routerLink="/orders" routerLinkActive="mat-accent">Commandes</a>
+                </li>
+                <li *ngIf="!userIsAuthenticated || authType!=='coop'">
+                  <a mat-button routerLink="/card" routerLinkActive="mat-accent" >Panier ({{ numberInCard }})</a>
+                </li>
+                <li *ngIf="userIsAuthenticated">
+                  <a mat-button (click)="onLogout()" >Deconnexion</a>
+                </li>
+            </ul>
+        </nav>
+
+        <nav class="main-menu mobile-menu" *ngIf="userIsAuthenticated && authType=='admin'">
+          <ul>
+              <li><a routerLink="/admin/users" routerLinkActive>Utilisateurs</a></li>
+              <li><a routerLink="/admin/coops" routerLinkActive>Coopératives</a></li>
+              <li><a routerLink="/admin/products" routerLinkActive="">Produits</a></li>
+              <li><a routerLink="/admin/orders" routerLinkActive>Commandes</a></li>
+              <li><a routerLink="/admin/comments" routerLinkActive="">Commentaires</a></li>
+              <li><a routerLink="/admin/categories" routerLinkActive="">Catégories</a></li>
+          </ul>
+      </nav>
+    </div>
+</div>
+</header>
+
+<!-- Header End -->
+<!-- Header Info Begin -->
+<div class="header-info"  *ngIf="authType!='admin'">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-4">
+              <div class="header-item">
+                  <img src="assets/img/icons/delivery.png" alt="">
+                  <p> Livraison gratuite</p>
+              </div>
+          </div>
+          <div class="col-md-4 text-left text-lg-center">
+              <div class="header-item">
+                  <img src="assets/img/icons/voucher.png" alt="">
+                  <p>20% réduction</p>
+              </div>
+          </div>
+          <div class="col-md-4 text-left text-xl-right">
+              <div class="header-item">
+              <img src="assets/img/icons/sales.png" alt="">
+              <p> qualité supérieure</p>
+          </div>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- Header Info End -->
+<!-- Header End -->
+

@@ -1,0 +1,30 @@
+<h2>Inscription Utilisateur</h2>
+<mat-card>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <form (submit)="onSignup(signupForm)" #signupForm="ngForm" *ngIf="!isLoading">
+    <mat-form-field>
+      <input matInput name="username" ngModel type="text" placeholder="Username" #usernameInput="ngModel" required>
+      <mat-error *ngIf="usernameInput.invalid">Please enter a username !</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="email" ngModel type="email" placeholder="Email" #emailInput="ngModel" required email>
+      <mat-error *ngIf="emailInput.invalid">Please enter a valid email !</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="firstname" ngModel type="text" placeholder="First Name" #firstnameInput="ngModel" required>
+      <mat-error *ngIf="firstnameInput.invalid">Please enter your first name !</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="lastname" ngModel type="text" placeholder="Last Name" #lastnameInput="ngModel" required>
+      <mat-error *ngIf="lastnameInput.invalid">Please enter your last name !</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="password" ngModel type="password" placeholder="Password" #passwordInput="ngModel" required>
+      <mat-error *ngIf="">Please enter a valid password !</mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="accent" type="submit" *ngIf="!isLoading">Signup</button>
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+  </form>
+</mat-card>
+
+<a routerLink="/signupCoop" routerLinkActive>Inscription Coopérative</a>

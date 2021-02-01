@@ -1,0 +1,96 @@
+<h2>Paiement: </h2><br />
+<mat-card>
+  <form (submit)="checkout(orderForm)" #orderForm="ngForm">
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="fullname"
+        ngModel
+        required
+        placeholder="Nom et prénom"
+        #orderFullName="ngModel">
+        <mat-error *ngIf="orderFullName.invalid">Please enter your full name</mat-error>
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+      <textarea
+      matInput
+        rows="6"
+        name="address"
+        ngModel
+        required
+        minlength="3"
+        placeholder="Adresse"
+        #orderAddress="ngModel"></textarea>
+        <mat-error *ngIf="orderAddress.invalid">Please enter an address</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+      matInput
+        rows="6"
+        name="tel"
+        ngModel
+        required
+        minlength="3"
+        placeholder="Code postal"
+        #postalCodeTel="ngModel">
+        <mat-error *ngIf="postalCodeTel.invalid">Code postal</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+      matInput
+        rows="6"
+        name="tel"
+        ngModel
+        required
+        minlength="3"
+        placeholder="Numéro de Telephone"
+        #orderTel="ngModel">
+        <mat-error *ngIf="orderTel.invalid">Please enter a Telephone number</mat-error>
+    </mat-form-field>
+
+    <hr>
+    <h3>Informations bancaires</h3>
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="code"
+        ngModel
+        required
+        placeholder="XXXX XXXX XXXX XXXX"
+        #orderCode="ngModel">
+        <mat-error *ngIf="orderCode.invalid">Entrez vos informations bancaires</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="date"
+        ngModel
+        required
+        placeholder="MM/YY"
+        #orderCardDate="ngModel">
+        <mat-error *ngIf="orderCardDate.invalid">Entrez vos informations bancaires</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="cvs"
+        ngModel
+        required
+        placeholder="XXX"
+        #orderCvs="ngModel">
+        <mat-error *ngIf="orderCvs.invalid">Entrez vos informations bancaires</mat-error>
+    </mat-form-field>
+    <button
+        mat-raised-button
+        color="accent"
+        type="submit">Checkout</button>
+  </form>
+</mat-card>

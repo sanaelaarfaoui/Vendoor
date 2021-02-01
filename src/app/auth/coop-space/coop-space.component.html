@@ -1,0 +1,50 @@
+<h2>Login Cooperative</h2>
+<mat-card>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <form (submit)="onLogin(loginForm)" #loginForm="ngForm" *ngIf="!isLoading">
+    <mat-form-field>
+      <input matInput name="email" ngModel type="email" placeholder="Email" #emailInput="ngModel" required email>
+      <mat-error *ngIf="emailInput.invalid">Please enter a valid email !</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="password" ngModel type="password" placeholder="Password" #passwordInput="ngModel" required>
+      <mat-error *ngIf="">Please enter a valid password !</mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="accent" type="submit" *ngIf="!isLoading">Connexion</button>
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+  </form>
+</mat-card>
+
+<h2>Inscription Cooperative</h2>
+<mat-card>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <form (submit)="onSignup(signupForm)" #signupForm="ngForm" *ngIf="!isLoading">
+    <mat-form-field>
+      <input matInput name="name" ngModel type="text" placeholder="Nom de la coopérative" #nameInput="ngModel" required>
+      <mat-error *ngIf="nameInput.invalid">Entrez le nom de la coopérative !</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="email" ngModel type="email" placeholder="Email" #emailInput="ngModel" required email>
+      <mat-error *ngIf="emailInput.invalid">Entrez votre email !</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea matInput name="description" ngModel placeholder="Description" #descriptionInput="ngModel" required></textarea>
+      <mat-error *ngIf="descriptionInput.invalid">Entrez a valid description !</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="address" ngModel type="text" placeholder="Votre Adresse" #addressInput="ngModel" required>
+      <mat-error *ngIf="addressInput.invalid">Entrez your adresse !</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="tel" ngModel type="text" placeholder="Votre télephone" #telInput="ngModel" required>
+      <mat-error *ngIf="telInput.invalid">Please enter votre numéro de télephone !</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="password" ngModel type="password" placeholder="Mot de passe" #passwordInput="ngModel" required>
+      <mat-error *ngIf="">Entrez un mot de passe valide!</mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="accent" type="submit" *ngIf="!isLoading">Inscription</button>
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+  </form>
+</mat-card>
+

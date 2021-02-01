@@ -1,0 +1,12 @@
+a{
+  text-decoration: none;
+  color: #050505;
+}
+
+mat-list-item:hover{
+  background-color: #CFCFCF;
+}
+
+table{
+  width: 100%;
+}

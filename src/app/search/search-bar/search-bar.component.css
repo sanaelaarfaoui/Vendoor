@@ -1,0 +1,7 @@
+.search-bar{
+  width:80%;
+  margin: auto;
+}
+mat-form-field{
+  width: 100%;
+}

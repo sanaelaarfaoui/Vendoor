@@ -1,0 +1,49 @@
+<!-- Product Page Section Beign -->
+<section class="product-page">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-6">
+
+          <div class="product-img">
+              <figure>
+                <img [src]="product.image" alt="">
+                  <div class="p-status">new</div>
+              </figure>
+          </div>
+
+          </div>
+          <div class="col-lg-6">
+              <div class="product-content">
+                  <h2>{{ product.name }}</h2>
+                  <div class="pc-meta">
+                      <h5>{{ product.price }} DH</h5>
+                      <div class="rating">
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i>
+                          <i class="fa fa-star"></i>
+                      </div>
+                  </div>
+                  <p>{{ product.description }}</p>
+                  <ul class="tags">
+                      <li><span>Categorie :</span> {{ product.category }}</li>
+                  <li><span>Coopérative :</span> <a routerLink="/coop/{{ product.coop }}" routerLinkActive>{{coopName}}</a> </li>
+                  </ul>
+                  <div class="product-quantity">
+                      <div class="pro-qty">
+                          <input type="number" value="1" [(ngModel)]="qte">
+                      </div>
+                  </div>
+                  <a  mat-raised-button  color="accent" (click)="addToCart(product, qte)" routerLinkActive>Ajouter au panier</a>
+              </div>
+          </div>
+      </div>
+      <div class="row">
+        <h2>Commentaire</h2>
+        <app-comment-list></app-comment-list>
+        <app-comment-add></app-comment-add>
+      </div>
+  </div>
+</section>
+<!-- Product Page Section End -->

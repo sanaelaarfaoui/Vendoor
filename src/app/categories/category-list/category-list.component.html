@@ -1,0 +1,4 @@
+<h2>These are the categories</h2>
+<mat-list role="list">
+  <mat-list-item role="listitem" *ngFor="let cat of categories"><a routerLink="{{ cat.name }}" routerLinkActive>{{ cat.name }}</a></mat-list-item>
+</mat-list>

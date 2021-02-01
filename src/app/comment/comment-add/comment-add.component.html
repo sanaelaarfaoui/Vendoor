@@ -1,0 +1,12 @@
+<mat-card *ngIf="currUser">
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <form (submit)="onAddComment(commentForm)" #commentForm="ngForm" *ngIf="!isLoading">
+    <mat-form-field>
+      <textarea matInput name="content" ngModel placeholder="Commentaire" #contentInput="ngModel" required>
+      </textarea>
+      <mat-error *ngIf="">Veuillez entrez un commentaire !</mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="accent" type="submit" *ngIf="!isLoading">Commenter</button>
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+  </form>
+</mat-card>

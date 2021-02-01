@@ -1,0 +1,19 @@
+:host{
+  display: block;
+  margin-top: 1rem;
+}
+
+.info-text{
+  text-align: center;
+}
+
+mat-spinner {
+  margin: auto;
+}
+
+
+.productCard{
+  margin-top: 10px;
+  margin-right: 10px;
+  max-width: 400px;
+}

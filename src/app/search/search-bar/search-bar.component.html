@@ -1,0 +1,15 @@
+<mat-card class="search-bar">
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <form #searchForm="ngForm" *ngIf="!isLoading">
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="q"
+        [(ngModel)]="enteredValue"
+        placeholder="Rechercher un produit"
+        (keyup)="updateResult(searchForm)"
+        (click)="goToSearch()">
+    </mat-form-field>
+  </form>
+</mat-card>

@@ -1,0 +1,36 @@
+<h1><b>{{ coop.name }}</b></h1>
+<hr>
+<p>{{ coop.description }}</p>
+<p>
+  Email : {{ coop.email }} <br>
+  Adresse : {{ coop.address }} <br>
+  Tel : {{ coop.tel }} <br>
+</p>
+<hr>
+<h2>Liste des produits de {{ coop.name }} : </h2>
+
+<!-- Categories Page Section Begin -->
+<section class="categories-page spad">
+  <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-sm-6 mix all dresses bags" *ngFor="let product of coopProducts">
+            <div class="single-product-item" >
+                <figure>
+                    <a routerLink="/product/{{ product.id }}" routerLinkActive><img [src]="product.image" alt=""></a>
+                    <div class="p-status">{{ product.category }}</div>
+                </figure>
+                <div class="product-text">
+                    <h3><a routerLink="/product/{{ product.id }}" routerLinkActive>{{ product.name }}</a></h3>
+                    <p>{{ product.price }} DH</p>
+                    <span *ngIf="userIsAuthenticated && authType=='user'">
+                      <p><button mat-button color="primary" (click)="addToCard(product)">Ajouter au panier</button></p>
+                    </span>
+                    <span *ngIf="userIsAuthenticated && authType=='coop' && currCoopId == product.coop">
+                      <p><button mat-button color="accent" (click)="onDelete(product.id)">Supprimer</button></p>
+                    </span>
+                </div>
+            </div>
+        </div>
+      </div>
+  </div>
+</section>

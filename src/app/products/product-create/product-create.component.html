@@ -1,0 +1,73 @@
+<!--<form>
+  <label for="file">Choose File</label>
+  <input type="file"
+         id="file"
+         (change)="handleFileInput($event.target.files)">
+</form>-->
+<mat-card>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <form (submit)="onAddProduct(productForm)" #productForm="ngForm" *ngIf="!isLoading">
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="name"
+        ngModel
+        required
+        placeholder="Product Name"
+        #productName="ngModel">
+        <mat-error *ngIf="productName.invalid">Please enter a product name</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea
+      matInput
+        rows="6"
+        name="description"
+        ngModel
+        required
+        minlength="3"
+        placeholder="Product content"
+        #productDescription="ngModel"></textarea>
+        <mat-error *ngIf="productDescription.invalid">Please enter a product content</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Catégorie</mat-label>
+      <mat-select matInput matInputname="category" ngModel #productCat="ngModel">
+        <mat-option *ngFor="let cat of categories" [value]="cat.name">
+          {{cat.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        type="text"
+        matInput
+        rows="6"
+        name="image"
+        ngModel
+        required
+        minlength="3"
+        placeholder="Product Image"
+        #imagePrice="ngModel" />
+        <mat-error *ngIf="imagePrice.invalid">Please entera image url</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        type="number"
+        matInput
+        rows="6"
+        name="price"
+        ngModel
+        required
+        minlength="3"
+        placeholder="Product Price"
+        #productPrice="ngModel" />
+        <mat-error *ngIf="productPrice.invalid">Please enter a product content</mat-error>
+    </mat-form-field>
+    <button
+        mat-raised-button
+        color="accent"
+        type="submit">Submit</button>
+  </form>
+</mat-card>
